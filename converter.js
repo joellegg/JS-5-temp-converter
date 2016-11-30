@@ -1,22 +1,25 @@
-function toCelsius () {
-	// math to convert from fahrenheit to celcius
-	var temp_c = (temp_input - 32) * (5/9)
+function toCelsius (temp) {
+	// math to convert temp(input) from fahrenheit to celcius
+	var temp_c = (temp - 32) * (5/9)
 	return temp_c;
 }
 
-function toFahrenheit () {
-	// math to convert celcius to fahrenheit
-	var temp_f = (temp_input * (9/5)) + 32;
+function toFahrenheit (temp) {
+	// math to convert temp(input) from celcius to fahrenheit
+	var temp_f = (temp * (9/5)) + 32;
 	return temp_f; 
 }
 
 // Get a reference to the button element in the DOM
 var button = document.getElementById("converter");
 
-// This function should determine which conversion should
-// happen based on which radio button is selected.
-function determineConverter (clickEvent) {
-	var temp = document.getElementById('temp_input').value;
+// Assign a function to be executed when the button is clicked
+button.addEventListener("click", 
+	// This function should determine which conversion should
+	// happen based on which radio button is selected.
+	function determineConverter () {
+	// define temp within determineConverter function so it will be defined for the function and passed on
+	var temp = document.getElementById('temp_input').value;	
 	if (document.getElementById('fahrenheit').checked) {
 		toFahrenheit(temp);
 	} else if (document.getElementById('celcius').checked) {
@@ -24,7 +27,12 @@ function determineConverter (clickEvent) {
 	} else {
 		alert("Select a unit to convert to.")
 	}
-}
+})
 
-// Assign a function to be executed when the button is clicked
-button.addEventListener("click", determineConverter);
+// write results to h1 with class conv_temp
+
+
+// add clear input button
+
+
+
