@@ -1,3 +1,16 @@
+// This function should determine which conversion should happen based on which radio button is selected.
+function determineConverter () {
+	// define temp within determineConverter function so it will be defined for the function and passed on
+	var temp = document.getElementById('temp_input').value;	
+	if (document.getElementById('fahrenheit').checked) {
+		toFahrenheit(temp);
+	} else if (document.getElementById('celcius').checked) {
+		toCelsius(temp);
+	} else {
+		alert("Select a unit to convert to.")
+	}
+}
+
 function toCelsius (temp) {
 	// math to convert temp(input) from fahrenheit to celcius
 	var result_C = (temp - 32) * (5/9)
@@ -17,30 +30,27 @@ function toFahrenheit (temp) {
 	return result_F;
 }
 
-// Get a reference to the button element in the DOM
-var button = document.getElementById("converter");
-
-// Assign a function to be executed when the button is clicked
-button.addEventListener("click", 
-	// This function should determine which conversion should
-	// happen based on which radio button is selected.
-	function determineConverter () {
-	// define temp within determineConverter function so it will be defined for the function and passed on
-	var temp = document.getElementById('temp_input').value;	
-	if (document.getElementById('fahrenheit').checked) {
-		toFahrenheit(temp);
-	} else if (document.getElementById('celcius').checked) {
-		toCelsius(temp);
-	} else {
-		alert("Select a unit to convert to.")
-	}
-})
-
-// add clear input button
-var clear = document.getElementById("clear_Input");
-clear.addEventListener("click", function clear () {
+// This function clears the input 
+function clean_UP () {
 	var temp = document.getElementById('temp_input');
 	temp.value = "";
-})
+	document.getElementById('fahrenheit').checked = false;
+	document.getElementById('celcius').checked = false;
+	document.getElementById('temp_F').innerHTML = "";
+	document.getElementById('temp_C').innerHTML = "";
+}
 
+
+// calculate conversion button & 
+// Assign a function to be executed when the button is clicked
+var button = document.getElementById("converter");
+button.addEventListener("click", determineConverter);
+	
+
+// clear input button & 
+// Assign a function to be executed when the button is clicked
+var clear = document.getElementById("clear_Input");
+clear.addEventListener("click", clean_UP);
+
+//	event listener for enter key
 
