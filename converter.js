@@ -11,12 +11,29 @@ function determineConverter () {
 	}
 }
 
+// submit for when enter key is pressed in input field
+function enterKeyPressed (e) {
+	var keyPressed = e.keyCode; 
+	if (keyPressed === 13) {
+		determineConverter();
+	}
+}
+
 function toCelsius (temp) {
 	// math to convert temp(input) from fahrenheit to celcius
 	var result_C = (temp - 32) * (5/9)
 	var temperature_celcius = document.getElementById('temp_C');
 	temperature_celcius.innerHTML = "";
-	temperature_celcius.innerHTML = temp + " degrees fahrenheit is " + result_F + " degrees celcius!";
+	if (result_C > 32) {
+		temperature_celcius.style.color = "red";
+		temperature_celcius.innerHTML = temp + " degrees fahrenheit is " + result_C + " degrees celcius!";
+	} else if (result_C < 0) {
+		temperature_celcius.style.color = "blue";
+		temperature_celcius.innerHTML = temp + " degrees fahrenheit is " + result_C + " degrees celcius!";
+	} else {
+		temperature_celcius.style.color = "green";
+		temperature_celcius.innerHTML = temp + " degrees fahrenheit is " + result_C + " degrees celcius!";
+	}
 	return result_C;
 }
 
@@ -52,5 +69,7 @@ button.addEventListener("click", determineConverter);
 var clear = document.getElementById("clear_Input");
 clear.addEventListener("click", clean_UP);
 
-//	event listener for enter key
-
+//	Add an event handler to the input field that checks if the user pressed the enter key, 
+// and if that happens, perform the conversion.
+var input_TempField = document.getElementById('temp_input');
+input_TempField.addEventListener('keypress', enterKeyPressed);
