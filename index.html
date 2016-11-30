@@ -8,19 +8,20 @@
 	<label>Temperature:</label>
 	<input type="number" name="temperature" id="temp_input">
  	<!-- Create a radio button group where Celsius or Fahrenheit can be selected as the scale that the number should be converted to. -->
- 	<label>Fahrenheit:</label>
+ 	<label><strong>TO</strong> Fahrenheit:</label>
  	<input type="radio" name="temp" id="fahrenheit">
  	<label>Celcius</label>
  	<input type="radio" name="temp" id="celcius">
 
  	<!-- Create a block level element that will hold the text of the converted temperature. -->
- 	<h1 class="conv_temp"></h1>
+ 	<h1 id="temp_C"></h1>
+ 	<h1 id="temp_F"></h1>
 
  	<!-- Create a button that, when clicked, displays the converted temperature. -->
  	<button id="converter">Convert Temperature</button>
 
  	<!-- Create another button that, when clicked, clears any text in the input field. -->
- 	<button>Clear Input</button>
+ 	<button id="clear_Input">Clear Input</button>
  	<script src="converter.js" type="text/javascript"></script>
 </body>
 </html>

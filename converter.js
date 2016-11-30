@@ -1,13 +1,20 @@
 function toCelsius (temp) {
 	// math to convert temp(input) from fahrenheit to celcius
-	var temp_c = (temp - 32) * (5/9)
-	return temp_c;
+	var result_C = (temp - 32) * (5/9)
+	var temperature_celcius = document.getElementById('temp_C');
+	temperature_celcius.innerHTML = "";
+	temperature_celcius.innerHTML = temp + " degrees fahrenheit is " + result_F + " degrees celcius!";
+	return result_C;
 }
 
 function toFahrenheit (temp) {
 	// math to convert temp(input) from celcius to fahrenheit
-	var temp_f = (temp * (9/5)) + 32;
-	return temp_f; 
+	var result_F = (temp * (9/5)) + 32;
+	// write results to h1 with class conv_temp
+	var temperature_fahrenheit = document.getElementById('temp_F');
+	temperature_fahrenheit.innerHTML = "";
+	temperature_fahrenheit.innerHTML = temp + " degrees celcius is " + result_F + " degrees fahrenheit!"; 
+	return result_F;
 }
 
 // Get a reference to the button element in the DOM
@@ -29,10 +36,11 @@ button.addEventListener("click",
 	}
 })
 
-// write results to h1 with class conv_temp
-
-
 // add clear input button
-
+var clear = document.getElementById("clear_Input");
+clear.addEventListener("click", function clear () {
+	var temp = document.getElementById('temp_input');
+	temp.value = "";
+})
 
 
