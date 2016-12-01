@@ -21,7 +21,8 @@ function enterKeyPressed (e) {
 
 function toCelsius (temp) {
 	// math to convert temp(input) from fahrenheit to celcius
-	var result_C = (temp - 32) * (5/9)
+	var result_C = (temp - 32) * (5/9);
+	Math.round(result_C * 100) / 100;
 	var temperature_celcius = document.getElementById('temp_C');
 	temperature_celcius.innerHTML = "";
 	if (result_C > 32) {
@@ -40,7 +41,7 @@ function toCelsius (temp) {
 function toFahrenheit (temp) {
 	// math to convert temp(input) from celcius to fahrenheit
 	var result_F = (temp * (9/5)) + 32;
-	// write results to h1 with class conv_temp
+	Math.round(result_F * 100) / 100;
 	var temperature_fahrenheit = document.getElementById('temp_F');
 	temperature_fahrenheit.innerHTML = "";
 	if (result_F > 90) {
