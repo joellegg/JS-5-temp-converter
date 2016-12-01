@@ -43,7 +43,16 @@ function toFahrenheit (temp) {
 	// write results to h1 with class conv_temp
 	var temperature_fahrenheit = document.getElementById('temp_F');
 	temperature_fahrenheit.innerHTML = "";
-	temperature_fahrenheit.innerHTML = temp + " degrees celcius is " + result_F + " degrees fahrenheit!"; 
+	if (result_F > 90) {
+		temperature_fahrenheit.style.color = "red";
+		temperature_fahrenheit.innerHTML = temp + " degrees celcius is " + result_F + " degrees fahrenheit!";
+	} else if (result_F < 32) {
+		temperature_fahrenheit.style.color = "blue";
+		temperature_fahrenheit.innerHTML = temp + " degrees celcius is " + result_F + " degrees fahrenheit!";
+	} else {
+		temperature_fahrenheit.style.color = "green";
+		temperature_fahrenheit.innerHTML = temp + " degrees celcius is " + result_F + " degrees fahrenheit!";
+	}
 	return result_F;
 }
 
